@@ -51,6 +51,9 @@ export default class TaskTimer extends React.Component {
 
         const isRunning = this.hasRunningTask();
         const project = this.getTaskProject();
+        const dropDownStyle = {
+            width:'200px'
+        };
 
         return (
             <div className="taskTimer">
@@ -61,6 +64,7 @@ export default class TaskTimer extends React.Component {
                     defaultItem={defaultItem}
                     value={project}
                     onChange={e => { this.onProjectIdChange(e) }}
+                    style={dropDownStyle}
                     textField="name" valueField="id" />
 
                 {isRunning
