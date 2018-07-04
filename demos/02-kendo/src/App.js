@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import UseComponent from './views/UseComponent';
 import Home from './views/Home';
+import '@progress/kendo-theme-default/dist/all.css';
 
 class App extends Component {
 
