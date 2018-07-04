@@ -2,40 +2,37 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import kendoLogo from './kendoka.png';
 import './App.css';
+import { Route, Switch } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import UseComponent from './views/UseComponent';
 import Home from './views/Home';
 
 class App extends Component {
-
-  state = {
-    currentTab: "home"
-  }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <div className="logos">
-          <img src={logo} className="App-logo" alt="logo" />
-          <img src={kendoLogo} className="Kendo-logo" alt="Kendo logo" />
-          </div>
           <h1 className="App-title">Welcome to Kendo UI for React</h1>
-          <nav>
-            <ul className="navMain">
-              <li><a className="navLink" href="#" onClick={() => this.onNavigation("home")}>Home</a></li>
-            </ul>
-          </nav>
+          <div className="logos">
+            <img src={logo} className="App-logo" alt="logo" />
+            <img src={kendoLogo} className="Kendo-logo" alt="Kendo logo" />
+          </div>
         </header>
+        <nav>
+          <ul className="navMain">
+            <NavLink exact to='/' className="navLink" activeClassName='current'>Home</NavLink>
+            <NavLink to='/component' className="navLink" activeClassName='current'>Component</NavLink>
+          </ul>
+        </nav>
         <div className="tabContent">
-          {this.state.currentTab === "home" && <Home />}
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/component" component={UseComponent} />
+          </Switch>
         </div>
       </div>
     );
-  }
-
-  onNavigation(linkName) {
-    this.setState({
-      currentTab: linkName
-    })
   }
 }
 
