@@ -5,8 +5,10 @@ import './App.css';
 import { Route, Switch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import UseComponent from './views/UseComponent';
+import UseWrapper from './views/UseWrapper'
 import Home from './views/Home';
 import '@progress/kendo-theme-default/dist/all.css';
+import '@progress/kendo-ui';
 
 class App extends Component {
 
@@ -24,12 +26,14 @@ class App extends Component {
           <ul className="navMain">
             <NavLink exact to='/' className="navLink" activeClassName='current'>Home</NavLink>
             <NavLink to='/component' className="navLink" activeClassName='current'>Component</NavLink>
+            <NavLink to='/wrapper' className="navLink" activeClassName='current'>Wrapper</NavLink>
           </ul>
         </nav>
         <div className="tabContent">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/component" component={UseComponent} />
+            <Route path="/wrapper" component={UseWrapper} />
           </Switch>
         </div>
       </div>
