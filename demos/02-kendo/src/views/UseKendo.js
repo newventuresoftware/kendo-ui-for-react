@@ -1,14 +1,14 @@
 import React from 'react';
 import { Input } from '@progress/kendo-react-inputs';
 import { Button } from '@progress/kendo-react-buttons';
-import { Grid, GridColumn as Column, GridCell } from '@progress/kendo-react-grid';
+import { Grid, GridColumn as Column } from '@progress/kendo-react-grid';
+import { Notification } from '@progress/kendo-popups-react-wrapper';
 import { orderBy, filterBy } from '@progress/kendo-data-query';
 
 export default class UseKendo extends React.Component {
     state = {
         name: "",
         gridSort: [],
-        gridData: [],
         gridFilter: []
     }
 
@@ -19,6 +19,9 @@ export default class UseKendo extends React.Component {
     }
 
     render() {
+
+        let gridData = this.getGridData(this.state.gridSort, this.state.gridFilter);
+
         return (
             <div>
                 <form className="k-form-inline">
@@ -37,20 +40,24 @@ export default class UseKendo extends React.Component {
                     sortable={true}
                     sort={this.state.gridSort}
                     onSortChange={this.onSortChange}
-                    data={this.state.gridData}>
+                    data={gridData}>
                     <Column field="first_name" title="First Name" />
                     <Column field="last_name" title="Last Name" />
                     <Column field="country" title="Country" />
                 </Grid>
+                <Notification widgetRef={(widget) => this.notificationWidget = widget} />
             </div>
         );
     }
 
+    showNotificationForFilter = (name) => {
+        this.notificationWidget.show("Filtering for: " + name);
+    }
+
     onSortChange = (event) => {
         this.setState({
-            gridSort: event.sort,
-            gridData: this.getGridData(event.sort, this.state.gridFilter)
-        })
+            gridSort: event.sort
+        });
     }
 
     getGridData(sort, filter) {
@@ -65,8 +72,9 @@ export default class UseKendo extends React.Component {
             .then(people => {
                 this.people = people;
                 this.setState({
-                    gridData: this.getGridData([], [])
-                })
+                    gridSort: [],
+                    gridFilter: []
+                });
             });
     }
 
@@ -88,11 +96,11 @@ export default class UseKendo extends React.Component {
     onUpdate = (e) => {
         e.preventDefault();
         let filter = this.createFilterForName();
+        this.showNotificationForFilter(this.state.name);
 
         this.setState({
             updatedName: this.state.name,
-            gridFilter: filter,
-            gridData: this.getGridData(this.state.gridSort, filter)
+            gridFilter: filter
         })
     }
 }
