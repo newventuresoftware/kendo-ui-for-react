@@ -5,7 +5,8 @@ import { Button } from '@progress/kendo-react-buttons';
 export default class UseKendo extends React.Component {
     state = {
         name: "",
-        updatedName: ""
+        updatedName: "",
+        people: []
     }
 
     constructor(props) {
@@ -29,8 +30,25 @@ export default class UseKendo extends React.Component {
                 <div>
                     <span>Updated name: {this.state.updatedName}</span>
                 </div>
+                <div className="data">
+                    {this.state.people.map(p => (
+                        <div className="person" key={p.id}>{p.first_name} {p.last_name}</div>
+                    ))}
+                </div>
             </div>
         );
+    }
+
+    componentDidMount() {
+        fetch("/data/people.json")
+            .then(response => {
+                return response.json();
+            })
+            .then(people => {
+                this.setState({
+                    people: people
+                })
+            });
     }
 
     onChange = (e) => {
