@@ -2,14 +2,14 @@ import React from 'react';
 import { Input } from '@progress/kendo-react-inputs';
 import { Button } from '@progress/kendo-react-buttons';
 import { Grid, GridColumn as Column, GridCell } from '@progress/kendo-react-grid';
-import { orderBy} from '@progress/kendo-data-query';
+import { orderBy, filterBy } from '@progress/kendo-data-query';
 
 export default class UseKendo extends React.Component {
     state = {
         name: "",
-        updatedName: "",
         gridSort: [],
-        gridData:[]
+        gridData: [],
+        gridFilter: []
     }
 
     people = [];
@@ -32,9 +32,6 @@ export default class UseKendo extends React.Component {
                     </Button>
                     </label>
                 </form>
-                <div>
-                    <span>Updated name: {this.state.updatedName}</span>
-                </div>
                 <Grid
                     style={{ maxHeight: '400px' }}
                     sortable={true}
@@ -52,12 +49,12 @@ export default class UseKendo extends React.Component {
     onSortChange = (event) => {
         this.setState({
             gridSort: event.sort,
-            gridData: this.getGridData(event.sort)
+            gridData: this.getGridData(event.sort, this.state.gridFilter)
         })
     }
 
-    getGridData(sort) {
-        return orderBy(this.people, sort);
+    getGridData(sort, filter) {
+        return filterBy(orderBy(this.people, sort), filter);
     }
 
     componentDidMount() {
@@ -68,7 +65,7 @@ export default class UseKendo extends React.Component {
             .then(people => {
                 this.people = people;
                 this.setState({
-                    gridData: this.getGridData([])
+                    gridData: this.getGridData([], [])
                 })
             });
     }
@@ -79,10 +76,23 @@ export default class UseKendo extends React.Component {
         });
     }
 
+    createFilterForName() {
+        return {
+            logic: 'and',
+            filters: [
+                { field: "first_name", operator: "contains", value: this.state.name, ignoreCase: true }
+            ]
+        }
+    }
+
     onUpdate = (e) => {
         e.preventDefault();
+        let filter = this.createFilterForName();
+
         this.setState({
-            updatedName: this.state.name
+            updatedName: this.state.name,
+            gridFilter: filter,
+            gridData: this.getGridData(this.state.gridSort, filter)
         })
     }
 }
