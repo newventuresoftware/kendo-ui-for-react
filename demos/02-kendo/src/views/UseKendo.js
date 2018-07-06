@@ -1,13 +1,18 @@
 import React from 'react';
 import { Input } from '@progress/kendo-react-inputs';
 import { Button } from '@progress/kendo-react-buttons';
+import { Grid, GridColumn as Column, GridCell } from '@progress/kendo-react-grid';
+import { orderBy} from '@progress/kendo-data-query';
 
 export default class UseKendo extends React.Component {
     state = {
         name: "",
         updatedName: "",
-        people: []
+        gridSort: [],
+        gridData:[]
     }
+
+    people = [];
 
     constructor(props) {
         super();
@@ -30,13 +35,29 @@ export default class UseKendo extends React.Component {
                 <div>
                     <span>Updated name: {this.state.updatedName}</span>
                 </div>
-                <div className="data">
-                    {this.state.people.map(p => (
-                        <div className="person" key={p.id}>{p.first_name} {p.last_name}</div>
-                    ))}
-                </div>
+                <Grid
+                    style={{ maxHeight: '400px' }}
+                    sortable={true}
+                    sort={this.state.gridSort}
+                    onSortChange={this.onSortChange}
+                    data={this.state.gridData}>
+                    <Column field="first_name" title="First Name" />
+                    <Column field="last_name" title="Last Name" />
+                    <Column field="country" title="Country" />
+                </Grid>
             </div>
         );
+    }
+
+    onSortChange = (event) => {
+        this.setState({
+            gridSort: event.sort,
+            gridData: this.getGridData(event.sort)
+        })
+    }
+
+    getGridData(sort) {
+        return orderBy(this.people, sort);
     }
 
     componentDidMount() {
@@ -45,8 +66,9 @@ export default class UseKendo extends React.Component {
                 return response.json();
             })
             .then(people => {
+                this.people = people;
                 this.setState({
-                    people: people
+                    gridData: this.getGridData([])
                 })
             });
     }
