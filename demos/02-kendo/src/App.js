@@ -10,6 +10,7 @@ import Home from './views/Home';
 import UseKendo from './views/UseKendo';
 import UseCharts from './views/UseCharts';
 import UseExport from './views/UseExport';
+import NewComponents from './views/NewComponents';
 import '@progress/kendo-theme-default/dist/all.css';
 import '@progress/kendo-ui';
 
@@ -33,6 +34,7 @@ class App extends Component {
             <NavLink to='/kendo' className="navLink" activeClassName='current'>Using Kendo</NavLink>
             <NavLink to='/charts' className="navLink" activeClassName='current'>Charts</NavLink>
             <NavLink to='/export' className="navLink" activeClassName='current'>Export</NavLink>
+            <NavLink to='/newcomponents' className="navLink" activeClassName='current'>New Components</NavLink>
           </ul>
         </nav>
         <div className="tabContent">
@@ -43,6 +45,7 @@ class App extends Component {
             <Route path="/kendo" component={UseKendo} />
             <Route path="/charts" component={UseCharts} />
             <Route path="/export" component={UseExport} />
+            <Route path="/newcomponents" component={NewComponents} />
           </Switch>
         </div>
       </div>
