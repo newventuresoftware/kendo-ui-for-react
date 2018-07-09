@@ -8,6 +8,7 @@ import UseComponent from './views/UseComponent';
 import UseWrapper from './views/UseWrapper'
 import Home from './views/Home';
 import UseKendo from './views/UseKendo';
+import UseCharts from './views/UseCharts';
 import '@progress/kendo-theme-default/dist/all.css';
 import '@progress/kendo-ui';
 
@@ -29,6 +30,7 @@ class App extends Component {
             <NavLink to='/component' className="navLink" activeClassName='current'>Component</NavLink>
             <NavLink to='/wrapper' className="navLink" activeClassName='current'>Wrapper</NavLink>
             <NavLink to='/kendo' className="navLink" activeClassName='current'>Using Kendo</NavLink>
+            <NavLink to='/charts' className="navLink" activeClassName='current'>Charts</NavLink>
           </ul>
         </nav>
         <div className="tabContent">
@@ -37,6 +39,7 @@ class App extends Component {
             <Route path="/component" component={UseComponent} />
             <Route path="/wrapper" component={UseWrapper} />
             <Route path="/kendo" component={UseKendo} />
+            <Route path="/charts" component={UseCharts} />
           </Switch>
         </div>
       </div>
