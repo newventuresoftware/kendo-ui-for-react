@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Calendar } from '@progress/kendo-react-dateinputs';
 import { Button } from '@progress/kendo-react-buttons';
 import {
