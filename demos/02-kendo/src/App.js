@@ -5,10 +5,11 @@ import './App.css';
 import { Route, Switch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import UseComponent from './views/UseComponent';
-import UseWrapper from './views/UseWrapper'
+import UseWrapper from './views/UseWrapper';
 import Home from './views/Home';
 import UseKendo from './views/UseKendo';
 import UseCharts from './views/UseCharts';
+import UseExport from './views/UseExport';
 import '@progress/kendo-theme-default/dist/all.css';
 import '@progress/kendo-ui';
 
@@ -31,6 +32,7 @@ class App extends Component {
             <NavLink to='/wrapper' className="navLink" activeClassName='current'>Wrapper</NavLink>
             <NavLink to='/kendo' className="navLink" activeClassName='current'>Using Kendo</NavLink>
             <NavLink to='/charts' className="navLink" activeClassName='current'>Charts</NavLink>
+            <NavLink to='/export' className="navLink" activeClassName='current'>Export</NavLink>
           </ul>
         </nav>
         <div className="tabContent">
@@ -40,6 +42,7 @@ class App extends Component {
             <Route path="/wrapper" component={UseWrapper} />
             <Route path="/kendo" component={UseKendo} />
             <Route path="/charts" component={UseCharts} />
+            <Route path="/export" component={UseExport} />
           </Switch>
         </div>
       </div>
