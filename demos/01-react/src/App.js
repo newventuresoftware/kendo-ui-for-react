@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Home from './views/Home';
+import Hello from './views/Hello';
 import Lifecycle from './views/Lifecycle';
+import Header from './Header';
 
 class App extends Component {
 
@@ -13,25 +13,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-          <nav>
-            <ul className="navMain">
-              <li><a className="navLink" href="#" onClick={() => this.onNavigation("home")}>Home</a></li>
-              <li><a className="navLink" href="#" onClick={() => this.onNavigation("lifecycle")}>Lifecyle</a></li>
-            </ul>
-          </nav>
-        </header>
+        <Header onNavigation={this.onNavigation}/>
         <div className="tabContent">
-          {this.state.currentTab === "home" && <Home />}
+          {this.state.currentTab === "hello" && <Hello />}
           {this.state.currentTab === "lifecycle" && <Lifecycle />}
         </div>
       </div>
     );
   }
 
-  onNavigation(linkName) {
+  onNavigation = (linkName) => {
     this.setState({
       currentTab: linkName
     })
