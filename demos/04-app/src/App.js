@@ -25,15 +25,9 @@ class App extends Component {
 
         <NavigationPane>
           <ul>
-            <li>
-              <NavLink to="/" className="navLink home">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/track" className="navLink track">Track</NavLink>
-            </li>
-            <li>
-              <NavLink to="/dashboard" className="navLink dashboard">Dashboard</NavLink>
-            </li>
+            <li><NavLink exact to="/" className="navLink home">Home</NavLink></li>
+            <li><NavLink to="/track" className="navLink track">Track</NavLink></li>
+            <li><NavLink to="/dashboard" className="navLink dashboard">Dashboard</NavLink></li>
           </ul>
         </NavigationPane>
 
