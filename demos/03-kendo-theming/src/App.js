@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import kendoLogo from './kendoka.png';
 import ComponentPreview from './ComponentPreview';
 import './App.css';
-import './kendo.css';
+import '@progress/kendo-theme-default/dist/all.css';
 
 class App extends Component {
 
