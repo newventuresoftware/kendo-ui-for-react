@@ -2,39 +2,43 @@ import React from 'react';
 
 const countries = ["Austria", "Bulgaria", "Germany", "Greece", "Hungary", "United Kingdom", "Vatican City", "USA"];
 
-function Components() {
-    return (
-        <div>
-            <ListComponent items={countries} title="Countries" />
-        </div>
-    );
-}
-
-class ListComponent extends React.Component {
+class Components extends React.Component {
 
     state = {
-        selectedItem: null
+        selectedCountry: countries[2]
     }
 
     render() {
         return (
-            <div className="listComponent">
-                <div>{this.props.title}:</div>
-                <ol>
-                    {this.props.items.map(country => (
-                        <li className={country === this.state.selectedItem ? "selected" : ""} 
-                            onClick={() => this.onClick(country)}>{country}</li>
-                    ))}
-                </ol>
+            <div>
+                <ListComponent
+                    items={countries}
+                    title="Countries"
+                    onItemSelected={this.onCuntrySelected}
+                    selectedItem={this.state.selectedCountry} />
             </div>
         );
     }
 
-    onClick = (item) => {
+    onCuntrySelected = (country) => {
         this.setState({
-            selectedItem: item
+            selectedCountry: country
         });
     }
+}
+
+function ListComponent(props) {
+    return (
+        <div className="listComponent">
+            <div>{props.title}:</div>
+            <ol>
+                {props.items.map(country => (
+                    <li className={country === props.selectedItem ? "selected" : ""}
+                        onClick={() => props.onItemSelected(country)}>{country}</li>
+                ))}
+            </ol>
+        </div>
+    );
 }
 
 export default Components;
