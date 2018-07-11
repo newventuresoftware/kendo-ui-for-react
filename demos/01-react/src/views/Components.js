@@ -33,7 +33,8 @@ function ListComponent(props) {
             <div>{props.title}:</div>
             <ol>
                 {props.items.map(country => (
-                    <li className={country === props.selectedItem ? "selected" : ""}
+                    <li key={country}
+                        className={country === props.selectedItem ? "selected" : ""}
                         onClick={() => props.onItemSelected(country)}>{country}</li>
                 ))}
             </ol>
