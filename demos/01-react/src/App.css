@@ -74,8 +74,15 @@
   to { transform: rotate(360deg); }
 }
 
-.offsetWidgets > .k-widget { 
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 40px;
+.listComponent ol {
+  list-style: none;
+  padding: 0;
+}
+
+.listComponent li {
+  cursor: pointer;
+}
+
+.listComponent li.selected {
+  font-weight: 700;
 }

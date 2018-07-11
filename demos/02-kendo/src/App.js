@@ -1,37 +1,40 @@
-import React from 'react';
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import kendoLogo from './kendoka.png';
+import './App.css';
+import { Route, Switch } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import UseComponent from './views/UseComponent';
+import UseWrapper from './views/UseWrapper';
+import Home from './views/Home';
+import Header from './Header';
+import UseKendo from './views/UseKendo';
+import UseCharts from './views/UseCharts';
+import UseExport from './views/UseExport';
+import NewComponents from './views/NewComponents';
 import '@progress/kendo-theme-default/dist/all.css';
-import products from './products.json';
-import { NumericTextBox } from '@progress/kendo-react-inputs';
-import { DateInput } from '@progress/kendo-react-dateinputs';
-import { DropDownList } from '@progress/kendo-react-dropdowns';
-import { Button, ButtonGroup } from '@progress/kendo-react-buttons';
+import '@progress/kendo-ui';
 
-export default class App extends React.Component {
-    render() {
+class App extends Component {
 
-        let dropDownOptions = {
-            width: 500,
-            data: products,
-            valueField: "ProductID",
-            textField: "ProductName"
-        }
-
-        return (
-            <div>
-                <div>
-                    <NumericTextBox name="controlled" defaultValue={1} width="300" />
-                </div>
-                <div>
-                    <DateInput value={new Date()} />
-                </div>
-                <div>
-                    <DropDownList {...dropDownOptions} />
-                </div>s
-                <div>
-                    <Button >Simple button</Button>
-                    <Button primary={true} onClick={(e) => { alert("button clicked") }}>Simple button</Button>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="App">
+        <Header onNavigation={this.onNavigation} />
+        <div className="tabContent">
+        <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/component" component={UseComponent} />
+            <Route path="/wrapper" component={UseWrapper} />
+            <Route path="/kendo" component={UseKendo} />
+            <Route path="/charts" component={UseCharts} />
+            <Route path="/export" component={UseExport} />
+            <Route path="/newcomponents" component={NewComponents} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
+
+export default App;
