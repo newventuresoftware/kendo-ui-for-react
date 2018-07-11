@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router';
 import Hello from './views/Hello';
+import DomUpdates from './views/DomUpdates';
 import Lifecycle from './views/Lifecycle';
 import Header from './Header';
 
@@ -18,6 +19,7 @@ class App extends Component {
         <div className="tabContent">
           <Switch>
             <Route path="/hello" component={Hello} />
+            <Route path="/domupdates" component={DomUpdates} />
             <Route path="/lifecycle" component={Lifecycle} />
           </Switch>
         </div>

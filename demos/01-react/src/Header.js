@@ -15,6 +15,7 @@ export default function Header(props) {
             <nav>
                 <ul className="navMain">
                     <NavLink exact to='/hello' className="navLink" activeClassName='current'>Home</NavLink>
+                    <NavLink exact to='/domupdates' className="navLink" activeClassName='current'>Dom Updates</NavLink>
                     <NavLink exact to='/lifecycle' className="navLink" activeClassName='current'>Lifecyle</NavLink>
                 </ul>
             </nav>
