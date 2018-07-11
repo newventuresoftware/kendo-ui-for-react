@@ -1,5 +1,5 @@
 import React from 'react';
-import { DateInput, Calendar, DatePicker, TimePicker } from '@progress/kendo-react-dateinputs';
+import { DatePicker, TimePicker } from '@progress/kendo-react-dateinputs';
 import { AutoComplete, ComboBox } from '@progress/kendo-react-dropdowns';
 import { Switch } from '@progress/kendo-react-inputs';
 

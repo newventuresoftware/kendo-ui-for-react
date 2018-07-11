@@ -7,26 +7,3 @@ body {
 .tabContent {
   margin: 50px;
 }
-
-.navMain {
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
-  margin: 10px;
-  
-}
-
-.navLink {
-  display: inline-block;
-  text-decoration: none;
-  color: #222222;
-  margin: 0px 10px;
-}
-
-.navLink.current {
-  font-weight: 700;
-}
-
-.navLink:hover {
-  text-decoration: underline;
-}
