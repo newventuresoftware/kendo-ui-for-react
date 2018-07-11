@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route, Switch } from 'react-router';
 import Hello from './views/Hello';
 import Lifecycle from './views/Lifecycle';
 import Header from './Header';
@@ -13,10 +14,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header onNavigation={this.onNavigation}/>
+        <Header onNavigation={this.onNavigation} />
         <div className="tabContent">
-          {this.state.currentTab === "hello" && <Hello />}
-          {this.state.currentTab === "lifecycle" && <Lifecycle />}
+          <Switch>
+            <Route path="/hello" component={Hello} />
+            <Route path="/lifecycle" component={Lifecycle} />
+          </Switch>
         </div>
       </div>
     );
