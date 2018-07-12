@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import kendoLogo from './kendoka.png';
 import './App.css';
 import { Route, Switch } from 'react-router';
-import { NavLink } from 'react-router-dom';
 import UseComponent from './views/UseComponent';
 import UseWrapper from './views/UseWrapper';
 import Home from './views/Home';
