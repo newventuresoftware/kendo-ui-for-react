@@ -1,45 +1,40 @@
 import React from 'react';
 
-const countries = ["Austria", "Bulgaria", "Germany", "Greece", "Hungary", "United Kingdom", "Vatican City", "USA"];
+const numbers = [5, 10, 15, 9, 333];
 
-class Components extends React.Component {
+function Components() {
+    return (
+        <div>
+            <SumAndDouble numbers={numbers} />
+        </div>
+    );
+}
 
-    state = {
-        selectedCountry: countries[2]
+class SumAndDouble extends React.Component {
+
+    constructor(props) {
+        super();
+
+        this.state = {
+            sum: props.numbers.reduce((sum, x) => sum + x)
+        }
     }
 
     render() {
         return (
             <div>
-                <ListComponent
-                    items={countries}
-                    title="Countries"
-                    onItemSelected={this.onCuntrySelected}
-                    selectedItem={this.state.selectedCountry} />
+                <div>Sum and Double</div>
+                <div>{this.state.sum}</div>
+                <button onClick={this.onDouble}>Double</button>
             </div>
         );
     }
 
-    onCuntrySelected = (country) => {
+    onDouble = (e) => {
         this.setState({
-            selectedCountry: country
-        });
+            sum: this.state.sum * 2
+        })
     }
-}
-
-function ListComponent(props) {
-    return (
-        <div className="listComponent">
-            <div>{props.title}:</div>
-            <ol>
-                {props.items.map(country => (
-                    <li key={country}
-                        className={country === props.selectedItem ? "selected" : ""}
-                        onClick={() => props.onItemSelected(country)}>{country}</li>
-                ))}
-            </ol>
-        </div>
-    );
 }
 
 export default Components;

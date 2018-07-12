@@ -5,6 +5,7 @@ import Hello from './views/Hello';
 import DomUpdates from './views/DomUpdates';
 import Lifecycle from './views/Lifecycle';
 import Components from './views/Components';
+import ComponentsAdvanced from './views/ComponentsAdvanced';
 import Header from './Header';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <Switch>
             <Route path="/hello" component={Hello} />
             <Route path="/components" component={Components} />
+            <Route path="/componentsAdvanced" component={ComponentsAdvanced} />
             <Route path="/domupdates" component={DomUpdates} />
             <Route path="/lifecycle" component={Lifecycle} />
           </Switch>
