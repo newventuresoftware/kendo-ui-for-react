@@ -12,12 +12,11 @@ cd kendo-ui-for-react
 ```
 
 ## View the Slides
-Download PowerPoint presentation from this [link](https://1drv.ms/p/s!Ag88TW7Y89tw8TRueGXVxtnAweks)  
 Download PDF presentation from this [link](https://1drv.ms/b/s!Ag88TW7Y89tw8TVSGvG2ZYtWh2pf)
 
 ## Running the Demos
 
-### React
+### React Demos
 Navigate to the project and install the dependencies.
 ```
 cd demos/01-react
@@ -28,7 +27,7 @@ Run the app
 npm start
 ```
 
-### Kendo
+### Kendo Demos
 Navigate to the project and install the dependencies.
 ```
 cd demos/02-kendo
@@ -39,10 +38,21 @@ Run the app
 npm start
 ```
 
-### App
+### Theming Demos
 Navigate to the project and install the dependencies.
 ```
-cd demos/03-app
+cd demos/03-kendo-theming
+npm install
+```
+Run the app
+```
+npm start
+```
+
+### Sample App
+Navigate to the project and install the dependencies.
+```
+cd demos/04-app
 npm install
 ```
 Run the app
