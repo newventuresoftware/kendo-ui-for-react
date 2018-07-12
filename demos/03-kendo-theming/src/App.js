@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import kendoLogo from './kendoka.png';
+import kendoLogo from './kendo-react-logo.svg';
 import ComponentPreview from './ComponentPreview';
 import './App.css';
 import './kendo.css';
@@ -11,11 +11,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to Kendo UI for React</h1>
-          <div className="logos">
-            <img src={logo} className="App-logo" alt="logo" />
-            <img src={kendoLogo} className="Kendo-logo" alt="Kendo logo" />
-          </div>
+            <div className="Header-top">
+                <img src={kendoLogo} className="Kendo-logo" alt="Kendo Logo" />
+                <img src={logo} className="App-logo" alt="logo" />
+                <span className="App-title">Custom Themes</span>
+            </div>
         </header>
         <div>
           <div className="tabContent">

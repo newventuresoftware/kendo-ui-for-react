@@ -2,38 +2,93 @@
   text-align: center;
 }
 
-.Kendo-logo {
-  width: 80px;
-}
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 45px;
+  float: right;
+}
+
+.Kendo-logo {
+  height: 40px;
+  float: left;
 }
 
 .App-header {
-  background-color: #222;
-  padding: 20px;
+  padding-top: 5px;
+  padding-left: 10px;
   color: white;
+}
+
+.Header-top {
+  border-bottom: #222 1px solid;
+  line-height: 45px;
+  height: 45px;
 }
 
 .App-title {
   font-size: 1.5em;
-  margin: 0;
-  margin-bottom: 10px;
+  color: black;
+  float: right;
 }
 
 .App-intro {
   font-size: large;
 }
 
- .widgetContianer { 
-  display: block;
+.tabContent {
+  margin: 50px;
+}
+
+.navMain {
+  list-style-type: none;
   margin: 0 auto;
-  margin-bottom: 40px;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.navMain li {
+  display: inline-block;
+}
+
+.navLink {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  margin: 0px 10px;
+  margin-right: 10px;
+}
+
+.navLink.current {
+  font-weight: 700;
+}
+
+.navLink:hover {
+  text-decoration: underline;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.listComponent ol {
+  list-style: none;
+  padding: 0;
+}
+
+.listComponent li {
+  cursor: pointer;
+}
+
+.listComponent li.selected {
+  font-weight: 700;
+}
+
+.widgetContianer { 
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 40px;
 }
