@@ -9,8 +9,6 @@ import UseKendo from './views/UseKendo';
 import UseCharts from './views/UseCharts';
 import UseExport from './views/UseExport';
 import NewComponents from './views/NewComponents';
-import '@progress/kendo-theme-default/dist/all.css';
-import '@progress/kendo-ui';
 
 class App extends Component {
 
